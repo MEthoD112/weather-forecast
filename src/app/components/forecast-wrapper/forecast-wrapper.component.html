@@ -1,0 +1,20 @@
+<div class="forecast-wrapper">
+  <app-cities-autocomplete
+    [searchControl]="searchControl"
+    [cities]="$cities | async"
+    (selectCity)="onCitySelect($event)"
+  ></app-cities-autocomplete>
+
+  <div *ngIf="$cityInfo | async as cityInfo; else noData">
+    <app-city-weather
+      [weather]="cityInfo.weather"
+    ></app-city-weather>
+    <app-city-forecast
+      [forecastList]="cityInfo.forecasts"
+    ></app-city-forecast>
+  </div>
+</div>
+
+<ng-template #noData>
+  No Data
+</ng-template>

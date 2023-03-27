@@ -1,0 +1,17 @@
+<mat-form-field class="full-width" appearance="fill">
+  <mat-label>Search city name</mat-label>
+  <input type="text"
+         placeholder="Please type city name"
+         matInput
+         [formControl]="searchControl"
+         [matAutocomplete]="auto">
+  <mat-autocomplete
+    autoActiveFirstOption
+    #auto="matAutocomplete"
+    (optionSelected)="onCitySelect($event)"
+  >
+    <mat-option *ngFor="let city of cities" [value]="city.name">
+      {{city.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

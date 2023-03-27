@@ -1,0 +1,9 @@
+<div *ngIf="weather">
+  <h3>Weather</h3>
+  <div>City: {{weather.name}}</div>
+  <div>Temperature: {{weather.main.temp}}℃</div>
+  <div>Humidity: {{weather.main.humidity}}%</div>
+  <div *ngFor="let descriptionItem of weather.weather">
+    {{descriptionItem.description}}
+  </div>
+</div>
